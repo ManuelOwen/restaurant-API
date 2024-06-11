@@ -1,0 +1,496 @@
+GET http://localhost:8000/
+
+//users
+###
+GET http://localhost:8000/api/users
+
+###
+# Get users by id
+GET http://localhost:8000/api/users/3
+
+# Create a user
+###
+POST http://localhost:8000/api/auth/register
+Content-Type: application/json
+
+{
+    "username": "john",
+    "user_id": 7,
+    "password": "password"
+
+}
+
+###
+
+POST http://localhost:8000/api/auth/login
+Content-Type: application/json
+
+{
+    "username": "john",
+    "password": "password"
+
+}
+
+###
+PUT http://localhost:8000/api/users/15
+Content-Type: application/json
+
+{
+    "name": "James kibe",
+    "email": "doe@gmail.com",
+    "phone_number": "254712345678",
+    "password": "password",
+    "address_id": 8
+}
+
+###
+DELETE http://localhost:8000/api/users/2
+
+
+// get a single state
+###
+GET  http://localhost:8000/api/states/2
+
+###
+# Get all states
+GET http://localhost:8000/api/states
+
+###
+
+//create state
+POST http://localhost:8000/api/states
+Content-Type: application/json
+
+{
+    "name": "togo",
+    "code": "255"
+   
+ }
+
+###
+
+
+PUT http://localhost:8000/api/states/1
+Content-Type: application/json
+
+{
+    "name": "mwea"
+}
+
+###
+DELETE  http://localhost:8000/api/states/1
+
+//city
+###
+GET http://localhost:8000/api/cities
+
+###
+GET  http://localhost:8000/api/cities/2
+
+###
+//create city
+
+POST http://localhost:8000/api/cities
+Content-Type: application/json
+
+{
+    "name": "kampala",
+    "state_id": 3
+ }
+
+###
+
+PUT http://localhost:8000/api/cities/2
+Content-Type: application/json
+
+{
+    "name": "lilongwe",
+    "code": "255"
+
+}
+//categories
+###
+GET http://localhost:8000/api/categories
+
+###
+GET  http://localhost:8000/api/categories/2
+
+###
+//create category
+
+POST http://localhost:8000/api/categories
+Content-Type: application/json
+
+{
+    "name": "snaks",
+    "description": "buns" 
+ }
+
+###
+
+PUT http://localhost:8000/api/categories/1
+Content-Type: application/json
+
+{
+    "name": "food",
+    "description": "food items"
+}
+
+###
+DELETE  http://localhost:8000/api/categories/1
+
+//address
+###
+GET http://localhost:8000/api/addresses
+
+###
+GET  http://localhost:8000/api/addresses/2
+
+###
+//create address
+
+POST http://localhost:8000/api/addresses
+Content-Type: application/json
+
+{
+    "street_address1": "kagio Avenue",
+    "street_address2": "Kenyatta Avenue",
+    "zip_code": "00100",
+    "city_id": 5,
+    "delivery_instructions": "Deliver to the receptionist"
+  }
+
+###
+
+PUT http://localhost:8000/api/addresses/10
+Content-Type: application/json
+
+{
+  "id": 10,
+  "street_address1": "mwea Avenue",
+  "street_address2": "Kenyatta Avenue",
+  "zip_code": "00100",
+  "city_id": 5,
+  "delivery_instructions": "Deliver to the receptionist"
+}
+
+###
+# Delete an address
+DELETE http://localhost:8000/api/addresses/2
+
+
+//menuitem
+###
+GET http://localhost:8000/api/menuitems
+
+###
+GET  http://localhost:8000/api/menuitems/8
+
+###
+//create menuitem
+
+POST http://localhost:8000/api/menuitems
+
+Content-Type: application/json
+
+{
+  
+    "name": "Chicken Burger",
+    "price": "500",
+    "restaurant_id": 2,
+    "Category_id": 2,
+    "Description": "Chicken Burger",
+    "ingredients": "Chicken",
+    "active": "Yes"
+    
+  },
+
+
+//driver
+###
+GET http://localhost:8000/api/drivers
+
+###
+GET  http://localhost:8000/api/drivers/2
+
+###
+//create driver
+
+POST http://localhost:8000/api/drivers
+Content-Type: application/json
+
+{
+    "id": "23",
+    "car_model": "maxda",
+    "car_make": "demio",
+    "car_year": "2010",
+    "name": "lester otieno",
+    "phone": "255",
+    "email": "lester@gmail.com",
+    "car_make": "toyota",
+    "user_id": 7
+}
+
+###
+
+PUT http://localhost:8000/api/drivers/1
+Content-Type: application/json
+
+{
+    "name": "john otieno",
+    "phone": "255",
+    "email": "otieno@gmail.com"
+}
+
+###
+DELETE  http://localhost:8000/api/drivers/1
+//order
+###
+GET http://localhost:8000/api/orders
+
+###
+GET  http://localhost:8000/api/orders/2
+
+###
+//create order
+
+POST http://localhost:8000/api/orders
+Content-Type: application/json
+
+{
+    "id": "3",
+    "order_date": "2021-09-09",
+    "order_status": "delivered",
+    "order_total": "2000",
+    "driver": "lester ",
+    "customer": " otieno",
+    "menuitem": "food",
+    "address": "nairobi",
+    "restaurant_id": 2,
+    "delivery_address_id": 3,
+    "user_id": 7,
+    "driver_id": 2,
+    "price": 2000,
+    "Discount":200,
+    "final_price": 1800,
+    "Comment": "nice"
+}
+
+###
+
+PUT http://localhost:8000/api/orders/1
+Content-Type: application/json
+
+{
+    "order_date": "2021-09-09",
+    "order_status": "pending",
+    "order_total": "2000",
+    "driver": "lester otieno",
+    "customer": "lester otieno",
+    "menuitem": "food",
+    "address": "nairobi",
+}
+
+###
+DELETE  http://localhost:8000/api/orders/1
+
+//restaurant
+###
+GET http://localhost:8000/api/restaurants
+
+###
+GET http://localhost:8000/api/restaurants/2
+
+###
+//create restaurant
+
+POST http://localhost:8000/api/restaurants
+Content-Type: application/json
+
+  {
+ 
+   
+    "name": "Cofee House",
+    "street_address": "Kimathi Street",
+    "zip_code": "00100",
+    "city_id": 6
+    
+
+  }
+
+###
+
+PUT http://localhost:8000/api/restaurants/9
+
+ {
+
+   "name": "tea House",
+    "street_address": "Kimathi Street",
+    "zip_code": "00100",
+    "city_id": 5
+  }
+
+###
+DELETE  http://localhost:8000/api/restaurants/15
+//restaurant owner
+###
+GET http://localhost:8000/api/restaurantsowners
+
+###
+GET  http://localhost:8000/api/restaurantsowners/2
+
+###
+//create restaurant owner
+
+POST http://localhost:8000/api/restaurantsowners
+Content-Type: application/json
+
+{
+    "id": "2",
+    "name": "fundi otieno",
+    "phone": "255",
+    "email": "fotieno@gmail.com"
+}
+// oredrmaenu item
+###
+GET http://localhost:8000/api/order_menu_items
+
+###
+GET  http://localhost:8000/api/order_menu_items/4
+
+###
+//create ordermenuitem
+
+POST http://localhost:8000/api/ordermenuitems
+Content-Type: application/json
+
+{
+    "id": "2",
+    "order": "lester otieno",
+    "menuitem": "food",
+    "quantity": "2",
+    "price": "2000",
+}
+
+###
+
+PUT http://localhost:8000/api/ordermenuitems/1
+Content-Type: application/json
+
+{
+    "order": "lester otieno",
+    "menuitem": "food",
+    "quantity": "2",
+    "price": "2000",
+}
+
+###
+DELETE  http://localhost:8000/api/ordermenuitems/1
+//payment
+
+
+//orderstatus
+###
+GET http://localhost:8000/api/orders-status
+
+###
+GET  http://localhost:8000/api/orders-status/3
+
+###
+//create orderstatus
+
+POST http://localhost:8000/api/orderstatuses
+Content-Type: application/json
+
+{
+    "id": "2",
+    "name": "pending",
+    "description": "order is pending",
+}
+
+###
+
+PUT http://localhost:8000/api/orderstatuses/1
+Content-Type: application/json
+
+{
+    "name": "pending",
+    "description": "order is pending",
+}
+
+###
+DELETE  http://localhost:8000/api/orderstatuses/1
+
+//status catalogue
+
+###
+GET http://localhost:8000/api/status_catalogs
+
+###
+GET  http://localhost:8000/api/status_catalogs/2
+
+###
+//create statuscatalogue
+
+POST http://localhost:8000/api/status_catalogs
+Content-Type: application/json
+
+{
+    "id": "2",
+    "name": "pending",
+    "description": "order is pending",
+}
+
+###
+
+PUT http://localhost:8000/api/status_catalogs/1
+Content-Type: application/json
+
+{
+    "name": "pending",
+    "description": "order is pending",
+}
+
+###
+DELETE  http://localhost:8000/api/status_catalogs/1
+//comments
+###
+
+
+
+GET http://localhost:8000/api/comments
+
+###
+GET  http://localhost:8000/api/comments/2
+
+###
+//create comment
+
+POST http://localhost:8000/api/comments
+Content-Type: application/json
+
+{
+    "order_id": 1,
+    "user_id": 1,
+    "comment_text": "nice",
+    "is_complaint": "false",
+    "is_praise": "true",
+    "createdAt": "2021-09-09",
+    "updatedAt": "2021-09-09"
+}
+
+
+###
+
+PUT http://localhost:8000/api/comments/1
+Content-Type: application/json
+
+{
+    "comment": "nice",
+    "comment_date": "2021-09-09",
+    "menuitem": "food",
+    "customer": "lester otieno",
+}
+
+###
+DELETE  http://localhost:8000/api/comments/1
