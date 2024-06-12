@@ -63,7 +63,7 @@ export const userTable = pgTable("user", {
     name: varchar("name", { length: 255 }).notNull(),
     email: varchar("email", { length: 255 }).notNull(),
     phone_number: varchar("phone_number").notNull(),
-    password: varchar("password", { length: 255 }).notNull(),
+   
     address_id: integer("address_id").notNull().references(() => addressTable.id, { onDelete: "cascade" }), // Foreign key to address
     createdAt: timestamp("created_at"),
     updatedAt: timestamp("updated_at")
