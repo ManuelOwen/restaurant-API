@@ -1,13 +1,6 @@
-// import { Category, Description, Discount, Restaurant } from "@mui/icons-material";
-import { relations } from "drizzle-orm";
-import { serial, text, timestamp, pgTable } from "drizzle-orm/pg-core";
-import { boolean as mysqlBoolean, datetime as mysqlDatetime, PrimaryKey } from "drizzle-orm/mysql-core";
-import { integer, varchar, boolean as pgBoolean } from "drizzle-orm/pg-core";
-import { idText } from "typescript";
-import { pgEnum } from "drizzle-orm/pg-core";
-// import { or } from "sql-bricks";
 
-// State has many Cities (1-n)
+import { relations } from "drizzle-orm";
+import { serial, text, timestamp, pgTable, pgEnum, integer, varchar,boolean } from "drizzle-orm/pg-core";
 //state table
 export const stateTable = pgTable("state", {
     id: serial("id").notNull().primaryKey(),
@@ -94,8 +87,8 @@ export const driverTable = pgTable("driver", {
     car_model: varchar("car_model", { length: 255 }).notNull(),
     car_year: integer("car_year").notNull(),
     user_id: integer("user_id").notNull().references(() => userTable.id, { onDelete: "cascade" }), // Foreign key to user
-    online: pgBoolean("online"),
-    delivering: pgBoolean("delivering"),
+    online: boolean("online"),
+    delivering: boolean("delivering"),
     createdAt: timestamp("created_at"),
     updatedAt: timestamp("updated_at")
 });
@@ -164,8 +157,8 @@ export const commentTable = pgTable("comment", {
     order_id: integer("order_id").notNull().references(() => orderTable.id, { onDelete: "cascade" }), // Foreign key to order
     user_id: integer("user_id").notNull().references(() => userTable.id, { onDelete: "cascade" }), // Foreign key to user
     comment_text: varchar("comment_text", { length: 255 }).notNull(),
-    is_complaint: pgBoolean("is_complaint"),
-    is_praise: pgBoolean("is_praise"),
+    is_complaint: boolean("is_complaint"),
+    is_praise: boolean("is_praise"),
     createdAt: timestamp("created_at"),
     updatedAt: timestamp("updated_at")
 });
