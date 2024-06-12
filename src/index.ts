@@ -28,7 +28,7 @@ import {commentRouter} from './comment/comment.route'
 import { authRouter } from './Auth/Authrouter'
 
 
-const app = new Hono()
+const app = new Hono();
 
 // inbuillt middlawares
   app.use(logger());
