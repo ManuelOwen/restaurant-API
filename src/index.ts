@@ -59,13 +59,13 @@ app.route("/api", commentRouter)
 app.route("/api/auth", authRouter)
 
 
-// app.get('/', (c) => {
-//   return c.text('Hello Hono!')
-// })
-app.get('/time',async (c) => {
-  await new Promise((resolve) => setTimeout(resolve, 2000))
+app.get('/', (c) => {
   return c.text('Hello Hono!')
 })
+// app.get('/time',async (c) => {
+//   await new Promise((resolve) => setTimeout(resolve, 2000))
+//   return c.text('Hello Hono!')
+// })
 
 const port = 8000
 console.log(`Server is running on port ${port}`)
