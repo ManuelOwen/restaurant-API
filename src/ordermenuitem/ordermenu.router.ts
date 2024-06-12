@@ -1,10 +1,11 @@
 import {Hono} from 'hono'
 import { getOrderMenuItemById, insertOrderMenuItem, listOrderMenuItems } from  './ordermenuitem.controller'
+import { adminRoleAuth } from '../middlewares/bearAuth';
 
 export const orderMenuItemRouter = new Hono();
 
 //list order menu items
-orderMenuItemRouter.get("/order_menu_items",listOrderMenuItems);
+orderMenuItemRouter.get("/order_menu_items", adminRoleAuth, listOrderMenuItems);
 
 //get order menu item by id
 orderMenuItemRouter.get("/order_menu_items/:id",getOrderMenuItemById);
@@ -16,4 +17,4 @@ orderMenuItemRouter.post("/order_menu_items",insertOrderMenuItem);
 orderMenuItemRouter.put("/order_menu_items/:id",insertOrderMenuItem);
 
 //delete order menu item
-orderMenuItemRouter.delete("/order_menu_items/:id",insertOrderMenuItem);
+orderMenuItemRouter.delete("/order_menu_items/:id",adminRoleAuth,insertOrderMenuItem);

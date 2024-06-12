@@ -3,10 +3,11 @@ GET http://localhost:8000/
 //users
 ###
 GET http://localhost:8000/api/users
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ2aWN0b3IiLCJyb2xlIjoiYWRtaW4iLCJleHAiOjE3MTgxODM1OTR9.gFFYD_XJ_H8lybnNpI9xTXZp29li7N3XP8pB-Jvvgq4
 
 ###
 # Get users by id
-GET http://localhost:8000/api/users/3
+GET http://localhost:8000/api/users/7
 
 # Create a user
 ###
@@ -14,9 +15,10 @@ POST http://localhost:8000/api/auth/register
 Content-Type: application/json
 
 {
-    "username": "john",
-    "user_id": 7,
-    "password": "password"
+    "username": "victor",
+    "user_id": 9,
+    "password": "1234",
+    "role": "admin"
 
 }
 
@@ -26,8 +28,8 @@ POST http://localhost:8000/api/auth/login
 Content-Type: application/json
 
 {
-    "username": "john",
-    "password": "password"
+    "username": "victor",
+    "password": "1234"
 
 }
 
@@ -44,7 +46,8 @@ Content-Type: application/json
 }
 
 ###
-DELETE http://localhost:8000/api/users/2
+DELETE http://localhost:8000/api/users/7
+authorization:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJmaWRlbCIsInJvbGUiOiJ1c2VyIiwiZXhwIjoxNzE4MTkwNDgwfQ.jGuKZHILYhF0O25bEC_tplZqgrjT6iJ07DcGKXfHaEs
 
 
 // get a single state
@@ -54,6 +57,8 @@ GET  http://localhost:8000/api/states/2
 ###
 # Get all states
 GET http://localhost:8000/api/states
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ2aWN0b3IiLCJyb2xlIjoiYWRtaW4iLCJleHAiOjE3MTgxOTExMjh9.pbdiJkgEf8yLdRC32iCmIV2hA8w9Nnm0Sl_SD6XNQHw
+
 
 ###
 
@@ -79,13 +84,16 @@ Content-Type: application/json
 
 ###
 DELETE  http://localhost:8000/api/states/1
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ2aWN0b3IiLCJyb2xlIjoiYWRtaW4iLCJleHAiOjE3MTgxOTExMjh9.pbdiJkgEf8yLdRC32iCmIV2hA8w9Nnm0Sl_SD6XNQHw
+
 
 //city
 ###
 GET http://localhost:8000/api/cities
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ2aWN0b3IiLCJyb2xlIjoiYWRtaW4iLCJleHAiOjE3MTgxODM1OTR9.gFFYD_XJ_H8lybnNpI9xTXZp29li7N3XP8pB-Jvvgq4
 
 ###
-GET  http://localhost:8000/api/cities/2
+GET  http://localhost:8000/api/cities/4
 
 ###
 //create city
@@ -108,9 +116,19 @@ Content-Type: application/json
     "code": "255"
 
 }
+//delete cities
+###
+DELETE  http://localhost:8000/api/cities/2
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ2aWN0b3IiLCJyb2xlIjoiYWRtaW4iLCJleHAiOjE3MTgxODM1OTR9.gFFYD_XJ_H8lybnNpI9xTXZp29li7N3XP8pB-Jvvgq4
+
+
+
+
 //categories
 ###
 GET http://localhost:8000/api/categories
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ2aWN0b3IiLCJyb2xlIjoiYWRtaW4iLCJleHAiOjE3MTgxODM1OTR9.gFFYD_XJ_H8lybnNpI9xTXZp29li7N3XP8pB-Jvvgq4
+
 
 ###
 GET  http://localhost:8000/api/categories/2
@@ -138,10 +156,12 @@ Content-Type: application/json
 
 ###
 DELETE  http://localhost:8000/api/categories/1
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ2aWN0b3IiLCJyb2xlIjoiYWRtaW4iLCJleHAiOjE3MTgxODM1OTR9.gFFYD_XJ_H8lybnNpI9xTXZp29li7N3XP8pB-Jvvgq4
 
 //address
 ###
 GET http://localhost:8000/api/addresses
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ2aWN0b3IiLCJyb2xlIjoiYWRtaW4iLCJleHAiOjE3MTgxOTExMjh9.pbdiJkgEf8yLdRC32iCmIV2hA8w9Nnm0Sl_SD6XNQHw
 
 ###
 GET  http://localhost:8000/api/addresses/2
@@ -177,6 +197,7 @@ Content-Type: application/json
 ###
 # Delete an address
 DELETE http://localhost:8000/api/addresses/2
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ2aWN0b3IiLCJyb2xlIjoiYWRtaW4iLCJleHAiOjE3MTgxOTExMjh9.pbdiJkgEf8yLdRC32iCmIV2hA8w9Nnm0Sl_SD6XNQHw
 
 
 //menuitem
@@ -209,6 +230,7 @@ Content-Type: application/json
 //driver
 ###
 GET http://localhost:8000/api/drivers
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ2aWN0b3IiLCJyb2xlIjoiYWRtaW4iLCJleHAiOjE3MTgxOTExMjh9.pbdiJkgEf8yLdRC32iCmIV2hA8w9Nnm0Sl_SD6XNQHw
 
 ###
 GET  http://localhost:8000/api/drivers/2
@@ -220,15 +242,15 @@ POST http://localhost:8000/api/drivers
 Content-Type: application/json
 
 {
-    "id": "23",
-    "car_model": "maxda",
-    "car_make": "demio",
+    "id": "42",
+    "car_model": "benz",
+    "car_make": "GLE",
     "car_year": "2010",
     "name": "lester otieno",
     "phone": "255",
     "email": "lester@gmail.com",
     "car_make": "toyota",
-    "user_id": 7
+    "user_id": 9
 }
 
 ###
@@ -244,9 +266,11 @@ Content-Type: application/json
 
 ###
 DELETE  http://localhost:8000/api/drivers/1
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ2aWN0b3IiLCJyb2xlIjoiYWRtaW4iLCJleHAiOjE3MTgxOTExMjh9.pbdiJkgEf8yLdRC32iCmIV2hA8w9Nnm0Sl_SD6XNQHw
 //order
 ###
 GET http://localhost:8000/api/orders
+Authorization:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ2aWN0b3IiLCJyb2xlIjoiYWRtaW4iLCJleHAiOjE3MTgxOTExMjh9.pbdiJkgEf8yLdRC32iCmIV2hA8w9Nnm0Sl_SD6XNQHw
 
 ###
 GET  http://localhost:8000/api/orders/2
@@ -258,17 +282,17 @@ POST http://localhost:8000/api/orders
 Content-Type: application/json
 
 {
-    "id": "3",
+    "id": "57",
     "order_date": "2021-09-09",
-    "order_status": "delivered",
+    "order_status": "Delivered",
     "order_total": "2000",
-    "driver": "lester ",
-    "customer": " otieno",
+    "driver": "vinii ",
+    "customer": " abdi",
     "menuitem": "food",
     "address": "nairobi",
-    "restaurant_id": 2,
+    "restaurant_id": 4,
     "delivery_address_id": 3,
-    "user_id": 7,
+    "user_id": 8,
     "driver_id": 2,
     "price": 2000,
     "Discount":200,
@@ -297,9 +321,12 @@ DELETE  http://localhost:8000/api/orders/1
 //restaurant
 ###
 GET http://localhost:8000/api/restaurants
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ2aWN0b3IiLCJyb2xlIjoiYWRtaW4iLCJleHAiOjE3MTgxOTExMjh9.pbdiJkgEf8yLdRC32iCmIV2hA8w9Nnm0Sl_SD6XNQHw
+
 
 ###
-GET http://localhost:8000/api/restaurants/2
+GET http://localhost:8000/api/restaurants/
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ2aWN0b3IiLCJyb2xlIjoiYWRtaW4iLCJleHAiOjE3MTgxOTExMjh9.pbdiJkgEf8yLdRC32iCmIV2hA8w9Nnm0Sl_SD6XNQHw
 
 ###
 //create restaurant
@@ -310,7 +337,7 @@ Content-Type: application/json
   {
  
    
-    "name": "Cofee House",
+    "name": "mara",
     "street_address": "Kimathi Street",
     "zip_code": "00100",
     "city_id": 6
@@ -332,9 +359,12 @@ PUT http://localhost:8000/api/restaurants/9
 
 ###
 DELETE  http://localhost:8000/api/restaurants/15
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ2aWN0b3IiLCJyb2xlIjoiYWRtaW4iLCJleHAiOjE3MTgxOTExMjh9.pbdiJkgEf8yLdRC32iCmIV2hA8w9Nnm0Sl_SD6XNQHw
+
 //restaurant owner
 ###
 GET http://localhost:8000/api/restaurantsowners
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ2aWN0b3IiLCJyb2xlIjoiYWRtaW4iLCJleHAiOjE3MTgxOTExMjh9.pbdiJkgEf8yLdRC32iCmIV2hA8w9Nnm0Sl_SD6XNQHw
 
 ###
 GET  http://localhost:8000/api/restaurantsowners/2
@@ -353,78 +383,93 @@ Content-Type: application/json
 }
 // oredrmaenu item
 ###
-GET http://localhost:8000/api/order_menu_items
+GET http://localhost:8000/api/menuitems
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ2aWN0b3IiLCJyb2xlIjoiYWRtaW4iLCJleHAiOjE3MTgxODM1OTR9.gFFYD_XJ_H8lybnNpI9xTXZp29li7N3XP8pB-Jvvgq4
 
 ###
-GET  http://localhost:8000/api/order_menu_items/4
+GET  http://localhost:8000/api/menuitems/4
 
 ###
 //create ordermenuitem
 
-POST http://localhost:8000/api/ordermenuitems
+POST http://localhost:8000/api/menuitems
 Content-Type: application/json
 
 {
-    "id": "2",
-    "order": "lester otieno",
+    "id": "4",
+    "name": "drinks",
+   "Category_id": 2,
+   "Description": "hard drinks",
+   "active": "false",
+   "ingredients": "barley",
+    "restaurant_id": 4,
+    "order": "mark njoroge",
     "menuitem": "food",
     "quantity": "2",
-    "price": "2000",
+    "price": "2000"
 }
 
 ###
 
-PUT http://localhost:8000/api/ordermenuitems/1
+PUT http://localhost:8000/api/menuitems/1
 Content-Type: application/json
 
 {
     "order": "lester otieno",
     "menuitem": "food",
     "quantity": "2",
-    "price": "2000",
+    "price": "2000"
 }
 
 ###
-DELETE  http://localhost:8000/api/ordermenuitems/1
+DELETE  http://localhost:8000/api/menuitems/1
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ2aWN0b3IiLCJyb2xlIjoiYWRtaW4iLCJleHAiOjE3MTgxODM1OTR9.gFFYD_XJ_H8lybnNpI9xTXZp29li7N3XP8pB-Jvvgq4
+status
 //payment
 
 
 //orderstatus
 ###
 GET http://localhost:8000/api/orders-status
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ2aWN0b3IiLCJyb2xlIjoiYWRtaW4iLCJleHAiOjE3MTgxODM1OTR9.gFFYD_XJ_H8lybnNpI9xTXZp29li7N3XP8pB-Jvvgq4
 
 ###
-GET  http://localhost:8000/api/orders-status/3
+GET  http://localhost:8000/api/orders-/3
 
 ###
 //create orderstatus
 
-POST http://localhost:8000/api/orderstatuses
+POST http://localhost:8000/api/orders-status
 Content-Type: application/json
 
 {
-    "id": "2",
-    "name": "pending",
-    "description": "order is pending",
+    "id": "6",
+    "order_id": "5",
+    "stats_catalogue_id": "2",
+    "name": "active",
+    "description": "order is on the way"
 }
 
 ###
 
-PUT http://localhost:8000/api/orderstatuses/1
+PUT http://localhost:8000/api/orders-status/1
 Content-Type: application/json
 
 {
     "name": "pending",
-    "description": "order is pending",
+    "description": "order is pending"
+
 }
 
 ###
-DELETE  http://localhost:8000/api/orderstatuses/1
+DELETE  http://localhost:8000/api/orders-status/1
 
 //status catalogue
 
 ###
 GET http://localhost:8000/api/status_catalogs
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ2aWN0b3IiLCJyb2xlIjoiYWRtaW4iLCJleHAiOjE3MTgxOTExMjh9.pbdiJkgEf8yLdRC32iCmIV2hA8w9Nnm0Sl_SD6XNQHw
+
 
 ###
 GET  http://localhost:8000/api/status_catalogs/2
@@ -436,9 +481,9 @@ POST http://localhost:8000/api/status_catalogs
 Content-Type: application/json
 
 {
-    "id": "2",
+    "id": "3",
     "name": "pending",
-    "description": "order is pending",
+    "description": "order is pending"
 }
 
 ###
@@ -447,18 +492,21 @@ PUT http://localhost:8000/api/status_catalogs/1
 Content-Type: application/json
 
 {
+   "id": "2",
     "name": "pending",
-    "description": "order is pending",
+    "description": "order is pending"
 }
 
 ###
 DELETE  http://localhost:8000/api/status_catalogs/1
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ2aWN0b3IiLCJyb2xlIjoiYWRtaW4iLCJleHAiOjE3MTgxOTExMjh9.pbdiJkgEf8yLdRC32iCmIV2hA8w9Nnm0Sl_SD6XNQHw
 //comments
 ###
 
 
 
 GET http://localhost:8000/api/comments
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ2aWN0b3IiLCJyb2xlIjoiYWRtaW4iLCJleHAiOjE3MTgxODM1OTR9.gFFYD_XJ_H8lybnNpI9xTXZp29li7N3XP8pB-Jvvgq4
 
 ###
 GET  http://localhost:8000/api/comments/2
@@ -494,3 +542,4 @@ Content-Type: application/json
 
 ###
 DELETE  http://localhost:8000/api/comments/1
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ2aWN0b3IiLCJyb2xlIjoiYWRtaW4iLCJleHAiOjE3MTgxODM1OTR9.gFFYD_XJ_H8lybnNpI9xTXZp29li7N3XP8pB-Jvvgq4

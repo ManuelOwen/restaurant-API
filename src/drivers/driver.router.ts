@@ -1,9 +1,10 @@
 import {Hono} from 'hono'
 import { deleteDriver, getDriverById, insertDriver, listDrivers, updateDriver } from './driver.controller'
+import { adminRoleAuth } from '../middlewares/bearAuth';
 export const driverRouter = new Hono();
 
 //get all drivers
-driverRouter.get('/drivers', listDrivers);
+driverRouter.get('/drivers', adminRoleAuth, listDrivers);
 
 //get comment by id
 driverRouter.get('/drivers/:id', getDriverById);
@@ -15,4 +16,4 @@ driverRouter.post('/drivers', insertDriver);
 driverRouter.put('/drivers/:id', updateDriver);
 
 //delete comment
-driverRouter.delete('/drivers/:id', deleteDriver);
+driverRouter.delete('/drivers/:id',adminRoleAuth, deleteDriver);

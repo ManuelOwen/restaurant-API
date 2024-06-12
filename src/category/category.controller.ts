@@ -4,7 +4,7 @@ import { categoryService, getCategoryService, createCategoryService, updateCateg
 
 export const listCategories = async (c: Context) => {
     try {
-        //limit the number of ds to be returned
+      
 
         const limit = Number(c.req.query('limit'))
 

@@ -1,10 +1,11 @@
 import {Hono} from "hono"
 import { deleteRestaurant, getRestaurantById, insertRestaurant, listRestaurants, updateRestaurant } from "./restaurant.controller";
+import { adminRoleAuth } from "../middlewares/bearAuth";
 
 export const restaurantRouter = new Hono();
 
 //get all restaurants
-restaurantRouter.get('/restaurants', listRestaurants)
+restaurantRouter.get('/restaurants',adminRoleAuth, listRestaurants)
 
 //get restaurant by id
 restaurantRouter.get('/restaurants/:id', getRestaurantById)
@@ -17,4 +18,4 @@ restaurantRouter.post('/restaurants', insertRestaurant)
 restaurantRouter.put('/restaurants/:id', updateRestaurant)
 
 //delete restaurant
-restaurantRouter.delete('/restaurants/:id', deleteRestaurant)
+restaurantRouter.delete('/restaurants/:id',adminRoleAuth, deleteRestaurant)
