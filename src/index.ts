@@ -1,5 +1,7 @@
 import { serve } from '@hono/node-server'
 import { Hono } from 'hono'
+import { prometheus } from '@hono/prometheus'
+
 import "dotenv/config"
 import {logger} from "hono/logger"
 import {csrf} from "hono/csrf"
@@ -26,10 +28,11 @@ import { orderStatusRouter } from './orderstatus/orderstatus.route';
 import {statusCatalogRouter} from './statscatalogue/statscatalogue.router'
 import {commentRouter} from './comment/comment.route'
 import { authRouter } from './Auth/Authrouter'
+import { readFile } from 'fs/promises'
 
 
 const app = new Hono();
-
+const {printMetrics, registerMetrics} = prometheus()
 // inbuillt middlawares
   app.use(logger());
 
@@ -59,14 +62,26 @@ app.route("/api", commentRouter)
 app.route("/api/auth", authRouter)
 
 
-app.get('/', (c) => {
-  return c.text('Hello Hono!')
-})
-// app.get('/time',async (c) => {
-//   await new Promise((resolve) => setTimeout(resolve, 2000))
-//   return c.text('Hello Hono!')
-// })
 
+app.get("/", async (c) => {
+  // return c.text("Welcome to the API")
+  try{
+    let html = await readFile("./index.html", 'utf-8') ;
+    return c.html(html)
+  }catch(err:any){
+    return c.text(err.message, 500)
+  }
+
+})
+
+// not found
+app.notFound((c) => {
+  return c.text("Not Found", 404)
+
+})
+
+app.get('/metrics', printMetrics)
+// app.get('/metrics', registerMetrics)
 const port = 8000
 console.log(`Server is running on port ${port}`)
 
