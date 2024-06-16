@@ -1,5 +1,6 @@
 import {Context} from "hono";
 import { usersService, getUserService, createUserService, updateUserService, deleteUserService,  } from "./user.service";
+import { sendRegistrationEmail } from "../helperfunction/helperfunction";
 
 
 export const listUsers = async (c: Context) => {
@@ -46,9 +47,16 @@ export const createUser = async (c: Context) => {
         const createdUser = await createUserService(user);
 
 
-        if (!createdUser) return c.text("User not created", 404);
-        return c.json({ msg: createdUser }, 201);
-        console.log("msg")
+        if (!createdUser){ return c.text("User not created", 404);
+        }else{
+            const userEmail = user.email;
+            const eventName = "Account creation";
+
+            // send  email
+            const emailResponse = await sendRegistrationEmail(userEmail,eventName);
+            console.log("email res", emailResponse)
+            return c.json({msg:emailResponse, createdUser}, 201)
+        }
 
     } catch (error: any) {
         return c.json({ error: error?.message }, 400)
